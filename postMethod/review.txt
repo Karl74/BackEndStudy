@@ -1,0 +1,31 @@
+SET THE DEPENDENCIES
+VARIABLE SERVER http.createServer
+CALL req.on method aqui esta lo que voy a enviar
+
+CALL FUNCTION end, function
+res.write
+
+SERVER LISTENER
+PORT, function
+
+
+var http = require("http");
+var server = http.createServer(function(req, res){
+
+    var requestData = ""
+    req.on("data", function(data){
+    requestData += data;
+    console.log("You have just send data to the server");
+    console.log("The data you send was: " + requestData);
+    });
+
+    req.on("end", function (){
+      res.write("<html><head><title>Hello Noder </title></head><body>");
+      res.write("<h1>Thank you</h1>");
+      res.write("<body></html>");
+    });
+
+});
+server.listen(PORT, function(){
+  console.log("Server listening on localhost", PORT);
+});
