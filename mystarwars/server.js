@@ -51,6 +51,9 @@ app.get("/", function(req, res){
   res.sendFile(path.join(__dirname, "view.html"));
 });
 
+app.get("/add", function(req, res){
+  res.sendFile(path.join(__dirname, "add.html"));
+});
 // app.get("/yoda", function(req, res){
 //   res.json(characters[0]);
 // });
