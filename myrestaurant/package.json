@@ -1,0 +1,16 @@
+{
+  "name": "myrestaurant",
+  "version": "1.0.1",
+  "description": "My own practice of the restaurant example",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Karl74",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2"
+  }
+}
