@@ -74,16 +74,21 @@ app.get("/api/:characters?", function(req, res){
 
   for(i = 0; i < characters.length; i++){
     if(chosen === characters[i].routeName){
-      res.json(characters[i]);
-      return;
+       return res.json(characters[i]);
     }
   }//end of the loop
-    res.send("This character is not found");
-  } else {
+    return res.json(false);
+  }
     res.json(characters);
-    }
 });
 
+app.post("/api/new", function(req, res){
+  var newCharacter = req.body;
+  newCharacter.routeName = newCharacter.name.replace(/\s+/g,"").toLowerCase();
+  characters.push(newCharacter);
+
+  res.json(characters);
+});
 
 // D. SERVER LISTNER FUNCTION ++++++++++++++++++++++++++++++>
 app.listen(PORT, function(){

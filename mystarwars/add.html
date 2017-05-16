@@ -20,6 +20,64 @@
         </a>
       </div>
 
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title"><strong>Add Characters</strong></h3>
+            </div>
+            <div class="panel-body">
+                <form  action="" method="POST">
+
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text"class="form-control" id="name">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="rol">Rol</label>
+                    <input type="text" class="form-control" id="role">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="text" class="form-control" id="age">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="force-points">Force Points</label>
+                    <input type="text" class="form-control" id="force-points">
+                  </div>
+
+                </form>
+                <br>
+                <div class="text-right">
+                  <button type="submit"  class="ntm btn-primary btn-md" id="add-btn">
+                    <span class="glyphicon glyphicon-fire"></span>
+                    Add to the Force
+                  </button>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div> <!-- END OF CONTAINER -->
+
+    <script type="text/javascript">
+
+    $("#add-btn").on("click", function(){
+       var newCharacter = {
+          name: $("#name").val().trim(),
+          role:$("#role").val().trim(),
+          age: $("#age").val().trim(),
+          forcePoints:$("#force-points").val().trim()
+      }
+
+        $.post("/api/new", newCharacter).done(function(data){
+          console.log(data);
+          alert("You have add a new character");
+        });
+      });
+    </script>
   </body>
 </html>

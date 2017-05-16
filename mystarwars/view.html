@@ -64,14 +64,16 @@
       searchCharacter = searchCharacter.replace(/\s+/g,"").toLowerCase();
 
       $.get("/api/"+ searchCharacter, function(data){
+        console.log(data);
         if(data){
           $("#stats").show();
           $("#name").text(data.name);
           $("#role").text(data.role);
           $("#age").text(data.age);
           $("#force-points").text(data.forcePoints);
-        } else {
-          $("#name").text("The forece is not with you this time");
+        }
+        else {
+          $("#name").text("The force is not with you this time");
           $("#stats").hide();
         }
       });//END OF AJEX FUNCTION
