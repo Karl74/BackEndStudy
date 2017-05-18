@@ -63,7 +63,7 @@
                 </div>
 
 <!-- || E ||== FORM SUBMIT BUTTON ==|| ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-                <button type="submit"class="btn btn-primary submit" name="button">Submit</button>
+                <button type="submit"class="btn btn-primary submit" id="reserveBtn">Submit</button>
               </form>
             </div>
           </div>
@@ -77,6 +77,22 @@
       </footer>
 
     </div> <!--  ||END OF CONTAINER|| -->
+<script type="text/javascript">
+$("#reserveBtn").on("click", function(){
+  var newReservation = {
+    name: $("#reserve-name").val().trim(),
+    phone: $("#reserve-phone").val().trim(),
+    email: $("#reserve-email").val().trim(),
+    uniqueId:$("#reserve-unique-id").val().trim()
+  };
+    console.log(newReservation);
+  $.post("/api/new", newReservation).done(function(data){
+    console.log(newReservation);
+  });
+
+});//END OF FUNCTION EVENT
+
+</script>
 
   </body>
 </html>
