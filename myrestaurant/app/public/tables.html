@@ -2,9 +2,89 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>The Tables</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery.js"></script>
   </head>
   <body>
+    <div class="container">
 
+<!-- || A ||== JUMBOTRON ==|| +++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+      <div class="jumbotron">
+        <h1 class="text-center"><span class="glyphicon glyphicon-fire"></span>Hot Restaurant</h1>
+        <hr>
+        <h2 class="text-center">Current Reservation and Waiting List</h2>
+        <br>
+
+<!-- || B ||== TABLES - WAITING LIST BUTTON ==|| +++++++++++++++++++++++++++++++++++ -->
+        <div class="text-center">
+          <a href="/reserve">
+            <button type="button" class="btn btn-lg btn-primary">
+              <span class="glyphicon glyphicon-list-alt"></span> Make a Reservation
+            </button>
+          </a>
+<!-- || C ||== HOME BUTTON ==|| ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+          <a href="/">
+            <button type="button" class="btn btn-lg btn-primary">
+              <span class="glyphicon glyphicon-home"></span>
+            </button>
+          </a>
+        </div>
+      </div>  <!--  ||END OF JUMBOTRON|| -->
+
+      <div class="row">
+        <div class="col-lg-12">
+
+<!-- || D ||== CURRENT TABLES ==|| ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+      <div class="form-group">
+          <!-- Current Tables in Use -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class=" panel-title">Current Reservations</h3>
+            </div>
+
+            <div class="panel-body" id="tableSection">
+
+            </div>
+
+          </div>
+
+<!-- || E ||== WAITING LIST ==|| ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <div class="form-group">
+        <div class="panel panke-default">
+          <div class="panel-heading">
+            <h4 class=" panel-title">Waiting List</h4>
+          </div>
+          <div class="panel-body" id="WaitingSection">
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- || F ||==FOOTER ==|| ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+    <footer class="footer">
+      <div class="container">
+        <p><a href="api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a></p>
+      </div>
+    </footer>
+  </div> <!--  ||END OF CONTAINER|| -->
   </body>
+  <script type="text/javascript">
+  $.get("/api/tables", function(data) {
+  for(var i = 0; i < data.length; i++){
+    if(data[i].IsUsed){
+      var usedTable = $("<div>");
+      usedTable.attr("class","well");
+      $("#tableSection").append(usedTable);
+      usedTable.html("<span class='badge'>" + data[i].table + "</span> | " + data[i].name);
+    }
+  }
+});
+</script>
 </html>

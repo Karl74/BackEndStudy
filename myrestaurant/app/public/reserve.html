@@ -2,27 +2,29 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Reserve</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   </head>
   <body>
     <div class="container">
+<!-- || A ||== JUMBOTRON ==|| +++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
       <div class="jumbotron">
 
         <h1 class="text-center"><span class="glyphicon glyphicon-fire"></span>Hot Restaurant</h1>
+        <hr>
         <h2 class="text-center">Make your reservation</h2>
         <br>
-
+<!-- || B ||== TABLES - WAITING LIST BUTTON ==|| +++++++++++++++++++++++++++++++++++ -->
         <div class="text-center">
           <a href="/tables">
             <button type="button" class="btn btn-lg btn-primary">
               <span class="glyphicon glyphicon-list-alt"></span> View Tables
             </button>
           </a>
-
-          <a href="/tables">
+<!-- || C ||== HOME BUTTON ==|| ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+          <a href="/">
             <button type="button" class="btn btn-lg btn-primary">
               <span class="glyphicon glyphicon-home"></span>
             </button>
@@ -39,6 +41,7 @@
             <div class="panel-body">
               <form role="form" class="" action="" method="">
 
+<!-- || D ||== RESERVATION FORM ==|| ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
                 <div class="form-group">
                   <label for="reserve-name">Name</label>
                   <input type="text" class="form-control" id="reserve-name" name="" value="">
@@ -59,12 +62,14 @@
                   <input type="text" class="form-control" id="reserve-unique-id" name="" value="">
                 </div>
 
+<!-- || E ||== FORM SUBMIT BUTTON ==|| ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
                 <button type="submit"class="btn btn-primary submit" name="button">Submit</button>
               </form>
             </div>
           </div>
         </div>
       </div>
+<!-- || F ||== FOOTER ==|| ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
       <footer class="footer">
         <div class="container">
           <p><a href="api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a></p>

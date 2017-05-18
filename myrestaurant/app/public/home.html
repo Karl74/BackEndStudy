@@ -2,29 +2,36 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Tables Page</title>
+    <title>Hot Restaurant Page</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   </head>
   <body>
     <div class="container">
+<!-- || A ||== JUMBOTRON ==|| +++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
         <div class="jumbotron">
           <h1 class="text-center"><span class="glyphicon glyphicon-fire"></span> Hot Restaurant</h1>
           <hr>
           <h2 class="text-center">"We only have 5 tables! Book your seat before they all are gone"</h2>
           <br>
-        <a href="/tables"><button class="btn btn-lg btn-primary" type="button" >
-          <span class="glyphicon glyphicon-list-alt"></span>
-            View Tables
+<!-- || B ||== TABLES - WAITING LIST BUTTON ==|| +++++++++++++++++++++++++++++++++++ -->
+          <div class="text-center">
+            <a href="/tables">
+              <button class="btn btn-lg btn-primary" type="button" >
+            <span class="glyphicon glyphicon-list-alt"></span>
+              View Tables
+            </button></a>
 
-        </button></a>
+<!-- || C ||== RESERVE BUTTON ==|| ++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
-        <a href="/reserve"><button class="btn btn-lg btn-primary" type="button" >
-          <span class="glyphicon glyphicon-credit-card">  </span>
-            Make a reservation
-        </button></a>
-      </div>
+            <a href="/reserve"><button class="btn btn-lg btn-primary" type="button" >
+              <span class="glyphicon glyphicon-credit-card">  </span>
+                Make a reservation
+              </button></a>
+        </div>
+    </div>
 
+<!-- || D ||== FOOTER ==|| ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
       <footer class="footer">
         <div class="container">
           <p><a href="api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a></p>

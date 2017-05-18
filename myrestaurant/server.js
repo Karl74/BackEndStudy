@@ -1,23 +1,26 @@
-var bodyParser = require('body-parser');
-var express = require('express');
+var express = require("express");
+var app = express()
 
-var app = express();
-var PORT = process.env.PORT || 8080;
+var PORT = 3000;
 
-app.get('/', function (req, res) {
-  res.send('Hello World');
-});
+var bodyParser = require('body-parser')
+var path = require("path")
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(bodyParser.json())
 
-app.use(function (req, res) {
-  res.setHeader('Content-Type', 'text/plain')
-  res.write('you posted:\n')
-  res.end(JSON.stringify(req.body, null, 2))
-})
+app.use(bodyParser.json({ type: 'application/*+json' }))
 
+// parse some custom thing into a Buffer
+app.use(bodyParser.raw({ type: 'application/vnd.custom-type' }))
+
+// parse an HTML body into a string
+app.use(bodyParser.text({ type: 'text/html' }))
+
+
+require("./app/routing/htmlRoutes")(app);
+require("./app/routing/apiRoutes")(app);
 
 app.listen(PORT, function(){
   console.log("App listening on port: " + PORT);
