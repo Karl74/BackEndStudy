@@ -60,7 +60,7 @@
           <div class="panel-heading">
             <h4 class=" panel-title">Waiting List</h4>
           </div>
-          <div class="panel-body" id="WaitingSection">
+          <div class="panel-body" id="waitingSection">
           </div>
         </div>
       </div>
@@ -82,9 +82,20 @@
       var usedTable = $("<div>");
       usedTable.attr("class","well");
       $("#tableSection").append(usedTable);
-      usedTable.html("<span class='badge'>" + data[i].table + "</span> | " + data[i].name);
+      usedTable.html("<span class='badge'>" + data[i].uniqueId + "</span> | " + data[i].name);
     }
   }
 });
+
+  $.get("/api/waitlist", function(data){
+    for(var i = 0; i < data.length; i++){
+      var onWaiting = $("<div>");
+      onWaiting.attr("class", "well");
+      $("#waitingSection").append(onWaiting);
+      onWaiting.html("<span class='badge'>" + data[i].uniqueId + "</span> | " + data[i].name);
+    }
+  });
+
+
 </script>
 </html>
